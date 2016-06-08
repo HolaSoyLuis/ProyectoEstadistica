@@ -5,12 +5,14 @@
  */
 package PackExtra;
 
+import java.util.Objects;
+
 /**
  *
  * @author Werner
  */
 public class Error {
-    private Double[][] table = {
+    private final Double[][] table = {
         {0.5000,	0.5040,	0.5080,	0.5120,	0.5160,	0.5199,	0.5239,	0.5279,	0.5319,	0.5359},
         {0.5398,	0.5438,	0.5478,	0.5717,	0.5557,	0.5596,	0.5636,	0.5675,	0.5714,	0.5753},
         {0.5793,	0.5832,	0.5871,	0.591,	0.5948,	0.5987,	0.6026,	0.6064,	0.6103,	0.6141},
@@ -100,10 +102,10 @@ public class Error {
         Double valorTabla, alpha = 1 - nc;
         valorTabla = (1-(alpha/2));
         Double x = 0.0, y = 0.0;
-        for (int i = 0; i < 10; i++) {
-            x++;
-            for (int j = 0; j < 35; j++) {
-                y++;
+        for (int i = 0; i < 35; i++) {
+            y++;
+            for (int j = 0; j < 10; j++) {
+                x++;
                 if (table[i][j] == valorTabla) {
                     break;
                 }
