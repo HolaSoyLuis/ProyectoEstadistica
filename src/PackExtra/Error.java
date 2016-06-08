@@ -101,21 +101,25 @@ public class Error {
         nc = NC/100;
         Double valorTabla, alpha = 1 - nc;
         valorTabla = (1-(alpha/2));
+        //System.out.println(valorTabla);
+        
         Double x = 0.0, y = 0.0;
-        for (int i = 0; i < 35; i++) {
-            y++;
-            for (int j = 0; j < 10; j++) {
-                x++;
-                if (table[i][j] == valorTabla) {
-                    break;
+        Integer i =0, j=0;
+        for ( i = 0; i < table.length; i++) {
+            
+            for ( j = 0; j < table[i].length; j++) {
+                if (table[i][j].equals(valorTabla)) {
+                    x = i.doubleValue();
+                    y = j.doubleValue();
                 }
             }
         }
-        return ((x/100)+(y/10));
+        System.out.println(x);
+        System.out.println(y);
+        return ((x/10)+(y/100));
     }
     
     public void error(){
-        zeta(getNC());
         
     }
     
