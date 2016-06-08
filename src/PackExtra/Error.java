@@ -54,6 +54,67 @@ public class Error {
         {0.9997,	0.9997,	0.9997,	0.9997,	0.9997,	0.9997,	0.9997,	0.9997,	0.9997,	0.9998}
     };
     
+    Double media, desviacion, tamanio, NC;
+
+    public Error(Double media, Double desviacion, Double tamanio, Double NC) {
+        this.media = media;
+        this.desviacion = desviacion;
+        this.tamanio = tamanio;
+        this.NC = NC;
+    }
+
+    public Double getMedia() {
+        return media;
+    }
+
+    public void setMedia(Double media) {
+        this.media = media;
+    }
+
+    public Double getDesviacion() {
+        return desviacion;
+    }
+
+    public void setDesviacion(Double desviacion) {
+        this.desviacion = desviacion;
+    }
+
+    public Double getTamanio() {
+        return tamanio;
+    }
+
+    public void setTamanio(Double tamanio) {
+        this.tamanio = tamanio;
+    }
+
+    public Double getNC() {
+        return NC;
+    }
+
+    public void setNC(Double NC) {
+        this.NC = NC;
+    }
     
-            
+    Double zeta(Double nc){
+        nc = NC/100;
+        Double valorTabla, alpha = 1 - nc;
+        valorTabla = (1-(alpha/2));
+        Double x = 0.0, y = 0.0;
+        for (int i = 0; i < 10; i++) {
+            x++;
+            for (int j = 0; j < 35; j++) {
+                y++;
+                if (table[i][j] == valorTabla) {
+                    break;
+                }
+            }
+        }
+        return ((x/100)+(y/10));
+    }
+    
+    public void error(){
+        zeta(getNC());
+        
+    }
+    
 }
