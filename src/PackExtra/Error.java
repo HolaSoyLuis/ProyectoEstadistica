@@ -65,6 +65,13 @@ public class Error {
         this.NC = NC;
     }
 
+        public void SetError(Double media, Double desviacion, Double tamanio, Double NC) {
+        this.media = media;
+        this.desviacion = desviacion;
+        this.tamanio = tamanio;
+        this.NC = NC;
+    }
+    
     public Double getMedia() {
         return media;
     }
@@ -96,13 +103,13 @@ public class Error {
     public void setNC(Double NC) {
         this.NC = NC;
     }
-    
+    //CALCULO ZETA
     Double zeta(Double nc){
         nc = NC/100;
         Double valorTabla, alpha = 1 - nc;
         valorTabla = (1-(alpha/2));
         //System.out.println(valorTabla);
-        
+        //Calculo del valor a buscar en la tabla
         Double x = 0.0, y = 0.0;
         Integer i =0, j=0;
         for ( i = 0; i < table.length; i++) {
@@ -114,13 +121,23 @@ public class Error {
                 }
             }
         }
-        System.out.println(x);
-        System.out.println(y);
+        //System.out.println(x);
+        //System.out.println(y);
         return ((x/10)+(y/100));
     }
+    //ERROR
+    public Double error(){
+        return (zeta(getNC())*(getDesviacion()/Math.sqrt(getTamanio())));
+    }
     
-    public void error(){
-        
+    //OBTENEMOS LOS INTERVALOS DE LA GRAFICA
+    //INFERIOR
+    public Double IConfianzaInferior(){
+        return (media-error());
+    }
+    //SUPERIOR
+    public Double IConfianzaSuperior(){
+        return (media+error());
     }
     
 }

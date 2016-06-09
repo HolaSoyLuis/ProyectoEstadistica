@@ -9,10 +9,10 @@ package PackExtra;
  *
  * @author Lu!s
  */
-public class NewClass {
+public class NewClass implements Table{
     public static void main(String[] args) {
-        //Error error = new Error(media,desviacion,tamanio,nc);
-        Error error = new Error(3100.0,150.0,100.0,95.0);
+        //Error ejemplo = new Error(media,desviacion,tamanio,nc);
+        error.SetError(3100.0,150.0,100.0,95.0);
         //System.out.println(error.zeta(Double.NaN));
         System.out.println("El intervalo va desde: "+error.IConfianzaInferior()+" Hasta "+error.IConfianzaSuperior());
     }
