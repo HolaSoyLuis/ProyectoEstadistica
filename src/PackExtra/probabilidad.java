@@ -30,4 +30,7 @@ public class probabilidad {
         return Error.getPosition(x.intValue(),y.intValue());
     }
     
+    public static double porcentaje(double p){
+        return p * 100;
+    }
 }

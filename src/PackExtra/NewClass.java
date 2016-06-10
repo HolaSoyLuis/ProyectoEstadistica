@@ -19,6 +19,7 @@ public class NewClass implements Table{
         
         System.out.println("Problema de probabilidad");
         System.out.println("donde:\nDesviacion = 50\nMedia = 150\nProbabilidad = 190 \nEl resultado deberia ser = 0.7881");
-        System.out.println("El resultado es: "+probabilidad.resultado(probabilidad.probabilidad(150.0, 50.0, 190.0)));
+        System.out.println("El resultado es: "+probabilidad.resultado(probabilidad.probabilidad(20.0, 4.0, 22.0)));
+        System.out.println("El porcentaje es de: " + probabilidad.porcentaje(probabilidad.resultado(probabilidad.probabilidad(20.0, 4.0, 22.0)))+"%");
     }
 }
